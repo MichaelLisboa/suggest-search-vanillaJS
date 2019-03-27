@@ -11,7 +11,7 @@ let userList = (list) => (
     </ul>`
 );
 
-let people = [],
+let members = [],
     formInput = document.getElementById('MemberInput'),
     presetMembers = document.getElementById('PresetMember'),
     endpoint = `http://127.0.0.1:8001/api/i/profiles/`,
@@ -29,15 +29,15 @@ fetch(endpoint, {
     })
     .then(response => response.json())
     .then(json => {
-        for (let [k, v] of Object.entries(json.members)) {
-            people.push({
+        for (let [k, v] of Object.entries(json.influencers)) {
+            members.push({
                 name: v.name,
                 slug: v.slug,
                 ig_handle: `@${v.ig_handle}`,
                 profile_pic: v.profile_pic
             });
         }
-        presetList(people);
+        presetList(members);
     })
     .catch(error => console.log(error));
 
@@ -45,12 +45,12 @@ let filterList = (value) => {
     let listEl = document.getElementById('MemberList');
     listEl.innerHTML = '';
 
-    for (let i = 0; i < people.length; i++) {
-        if ((people[i].ig_handle.toLowerCase())
+    for (let i = 0; i < members.length; i++) {
+        if ((members[i].ig_handle.toLowerCase())
             .indexOf(value.toLowerCase()) > -1) {
             let node = () => (
                 `<li class="member-link">
-                    ${people[i].ig_handle}
+                    ${members[i].ig_handle}
                 </li>`
             );
 
@@ -60,16 +60,16 @@ let filterList = (value) => {
         }
         if (value.length < 1) {
             listEl.innerHTML = '';
-            presetList(people);
+            presetList(members);
         }
     }
 };
 
-let presetList = (people) => {
+let presetList = (members) => {
     let searchSuggest = ['input', function(e) {
-        filterList(event.target.value, people);
+        filterList(event.target.value, members);
     }, false];
     formInput.addEventListener(...searchSuggest);
 
-    presetMembers.innerHTML = userList(people.slice(0, 3));
+    presetMembers.innerHTML = userList(members.slice(0, 3));
 };
