@@ -29,7 +29,7 @@ fetch(endpoint, {
     })
     .then(response => response.json())
     .then(json => {
-        for (let [k, v] of Object.entries(json.influencers)) {
+        for (let [k, v] of Object.entries(json.members)) {
             people.push({
                 name: v.name,
                 slug: v.slug,
@@ -49,7 +49,7 @@ let filterList = (value) => {
         if ((people[i].ig_handle.toLowerCase())
             .indexOf(value.toLowerCase()) > -1) {
             let node = () => (
-                `<li class="influencer-link">
+                `<li class="member-link">
                     ${people[i].ig_handle}
                 </li>`
             );
