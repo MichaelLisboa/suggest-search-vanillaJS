@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Search filter example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body style="background-color: #cfffff;">
+    <div class="uk-container uk-container-small uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport="offset-top: true">
+        <div class="uk-card uk-card-default uk-card-small uk-card-hover">
+            <div class="uk-card-body">
+                <p class="uk-text-meta">Enter an Instagram @username in the field below.</p>
+                <form id="SearchMemberForm">
+                    <div class="uk-margin-small">
+                        <div class="uk-inline uk-width-1-1">
+                            <button id="MemberSubmit" type="submit" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></button>
+                            <input id="MemberInput" type="search" name="ig_handle" class="member-search-input uk-input uk-form-large" placeholder="e.g., cristiano" autocapitalize="none" autocorrect="off" autocomplete="off">
+                            <div id="PresetMember" class="uk-width-1-1 uk-margin-remove" uk-dropdown="mode: click; pos: bottom-justify; boundary: .member-search-input"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
