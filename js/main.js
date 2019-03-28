@@ -28,20 +28,20 @@ fetch(endpoint, {
         headers: headers,
     })
     .then(response => response.json())
-    .then(json => {
-        for (let [k, v] of Object.entries(json.influencers)) {
-            members.push({
-                name: v.name,
-                slug: v.slug,
-                ig_handle: `@${v.ig_handle}`,
-                profile_pic: v.profile_pic
-            });
-        }
-        presetList(members);
-    })
+    .then(json => loadLists(json))
     .catch(error => console.log(error));
 
-let filterList = (value) => {
+let loadLists = (json) => {
+    let members = [...json.influencers],
+        searchSuggest = ['input', function(e) {
+            filterList(event.target.value, members);
+        }, false];
+
+    formInput.addEventListener(...searchSuggest);
+    presetMembers.innerHTML = userList(members.slice(0, 3));
+}
+
+let filterList = (value, members) => {
     let listEl = document.getElementById('MemberList');
     listEl.innerHTML = '';
 
@@ -53,23 +53,13 @@ let filterList = (value) => {
                     ${members[i].ig_handle}
                 </li>`
             );
-
             if (listEl.childNodes.length < 5) {
                 listEl.insertAdjacentHTML('beforeend', node());
             }
         }
-        if (value.length < 1) {
+        if (value.length < 2) {
             listEl.innerHTML = '';
-            presetList(members);
+            presetMembers.innerHTML = userList(members.slice(0, 3));
         }
     }
-};
-
-let presetList = (members) => {
-    let searchSuggest = ['input', function(e) {
-        filterList(event.target.value, members);
-    }, false];
-    formInput.addEventListener(...searchSuggest);
-
-    presetMembers.innerHTML = userList(members.slice(0, 3));
 };
