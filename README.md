@@ -6,21 +6,6 @@ Because discovery is a critical distinguishing feature of Influen$e, I also want
 
 In this article, I'll share the code and walk you through how the function works.
 
-<section class="uk-section uk-section-small">
-	<div class="content-box uk-container uk-container-small uk-padding-small uk-width-1-2@s">
-		<h4 class="uk-text-center">Shortcut this</h4>
-		<h5 class="uk-text-center">
-            If you know what you're doing, you can get the code from GitHub.
-        </h5>
-		<div class="uk-text-center">
-			<a class="uk-button uk-button-large uk-button-secondary"
-                href="https://github.com/MichaelLisboa/suggest-search-vanillaJS">
-				Get it on GitHub
-			</a>
-		</div>
-	</div>
-</section>
-
 ##### Let's begin
 We'll start with our search form. It looks like this:
 
@@ -87,7 +72,7 @@ One thing to bear in mind, Fetch doesn't do any error checking, it only returns 
 If you run that code, you'll get an array of objects. In my case it's an Array of social media influencer objects:
 
 
-![json-response](//images.ctfassets.net/1nc0h0ipk4bl/2L96k8OKFe4cUVSZBzALCD/962961953a3236c6e8446b8363292726/json-response.png)
+![json-response](https://github.com/MichaelLisboa/suggest-search-vanillaJS/blob/master/images/json-response.png)
 
 ##### Coding the UI
 Now we need to turn that Array into a nice drop down list. There are two types of lists I'm going to generate.
