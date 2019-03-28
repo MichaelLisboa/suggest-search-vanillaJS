@@ -1,12 +1,12 @@
 # A simple "Suggest-as-you-type" search widget in JavaScript and UIKit 3.
 
-##### While developing Influen$e, I wanted to make the search function a bit more robust for people searching for an influencer's Instagram account by name.
+### While developing Influen$e, I wanted to make the search function a bit more robust for people searching for an influencer's Instagram account by name.
 
 Because discovery is a critical distinguishing feature of Influen$e, I also wanted to build in a simple recommendation function that targeted customers based on the relevance of influencers' content to their core brand values.
 
 In this article, I'll share the code and walk you through how the function works.
 
-##### Let's begin
+#### Let's begin
 We'll start with our search form. It looks like this:
 
 ![Suggest as you type JavaScript and UIKit 3](https://raw.githubusercontent.com/MichaelLisboa/suggest-search-vanillaJS/master/images/javascript-suggest-as-you-type.png)
@@ -28,9 +28,9 @@ I'm using UIKit 3 for my CSS framework, so this part is easy. Here's the code:
                       boundary: .member-search-input"></div>
                 </div>
             </div>
-        </form>        
+        </form>
 
-##### Getting the data with Fetch
+#### Getting the data with Fetch
 The first thing we need to do is get an Array of objects to populate suggestions, right? So, we'll make a request to an API or cloud function or whatever.
 
 I'm using Fetch because all I need is a JSON object, but if you want more granular control you can use XHR just the same.
@@ -66,7 +66,7 @@ If you run that code, you'll get an array of objects. In my case it's an Array o
 
 ![json-response](https://github.com/MichaelLisboa/suggest-search-vanillaJS/blob/master/images/json-response.png)
 
-##### Coding the UI
+#### Coding the UI
 Now we need to turn that Array into a nice drop down list. There are two types of lists I'm going to generate.
 - One will be for automated recommendations when the user clicks the search field.
 - The other will be our suggest-as-you-type list.
@@ -178,7 +178,7 @@ if (key.length < 2) {
 }
 ```
 
-##### Stitching it all together
+#### Stitching it all together
 
 Let get our elements using `getElementById`.
 ```
