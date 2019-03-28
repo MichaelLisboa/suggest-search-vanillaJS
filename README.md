@@ -9,15 +9,7 @@ In this article, I'll share the code and walk you through how the function works
 ##### Let's begin
 We'll start with our search form. It looks like this:
 
-<div class="uk-padding uk-padding-remove-horizontal">
-  <form id="SearchMemberForm" class="uk-width-1-3@s">
-      <div class="uk-margin-small">
-          <div class="uk-inline uk-width-1-1">
-              <button id="MemberSubmit" type="submit" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></button>
-              <input id="MemberInput" type="search" name="ig_handle" class="member-search-input uk-input uk-form-large" placeholder="e.g., cristiano" autocapitalize="none" autocorrect="off" autocomplete="off">
-      </div>
-  </form>
-</div>
+![Suggest as you type JavaScript and UIKit 3](https://raw.githubusercontent.com/MichaelLisboa/suggest-search-vanillaJS/master/images/javascript-suggest-as-you-type.png)
 
 I'm using UIKit 3 for my CSS framework, so this part is easy. Here's the code:
 
