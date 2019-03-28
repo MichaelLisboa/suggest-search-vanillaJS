@@ -11,10 +11,9 @@ let userList = (list) => (
     </ul>`
 );
 
-let members = [],
-    formInput = document.getElementById('MemberInput'),
+let formInput = document.getElementById('MemberInput'),
     presetMembers = document.getElementById('PresetMember'),
-    endpoint = `http://127.0.0.1:8001/api/i/profiles/`,
+    endpoint = `://server/api/i/profiles/`,
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json; charset=utf-8",
@@ -41,13 +40,13 @@ let loadLists = (json) => {
     presetMembers.innerHTML = userList(members.slice(0, 3));
 }
 
-let filterList = (value, members) => {
+let filterList = (key, members) => {
     let listEl = document.getElementById('MemberList');
     listEl.innerHTML = '';
 
     for (let i = 0; i < members.length; i++) {
         if ((members[i].ig_handle.toLowerCase())
-            .indexOf(value.toLowerCase()) > -1) {
+            .indexOf(key.toLowerCase()) > -1) {
             let node = () => (
                 `<li class="member-link">
                     ${members[i].ig_handle}
@@ -57,7 +56,7 @@ let filterList = (value, members) => {
                 listEl.insertAdjacentHTML('beforeend', node());
             }
         }
-        if (value.length < 2) {
+        if (key.length < 2) {
             listEl.innerHTML = '';
             presetMembers.innerHTML = userList(members.slice(0, 3));
         }
